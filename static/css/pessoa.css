@@ -1,0 +1,44 @@
+/* A tela foi desenhada primeiro para celular. Em telas grandes fica centralizada. */
+.mobile-shell { position:relative; overflow:hidden; max-width:440px; min-height:100dvh; margin:0 auto; padding:27px 23px 20px; background:var(--paper); }
+.mobile-shell::after { content:""; position:absolute; z-index:0; bottom:-140px; left:-75px; width:230px; height:185px; border-radius:50%; background:var(--lilac); pointer-events:none; }
+.mobile-shell > * { position:relative; z-index:1; }
+.progress { display:flex; align-items:center; gap:13px; margin:24px 0 20px; font-size:.85rem; font-weight:650; }
+.progress-track { width:104px; height:6px; border-radius:20px; background:#e0d7e0; overflow:hidden; }
+.progress-track > span { display:block; width:50%; height:100%; background:#aa6aba; border-radius:20px; }
+.welcome { position:relative; min-height:90px; display:flex; align-items:center; }
+.welcome h1 { position:relative; z-index:1; max-width:76%; }
+.welcome-art { position:absolute; right:-17px; top:-42px; width:142px; height:142px; opacity:.85; z-index:0; }
+.intro { margin:10px 0 23px; font-size:.94rem; color:var(--muted); }
+.field-label { display:block; font-size:.94rem; margin-bottom:8px; font-weight:600; }
+.optional { font-size:.74rem; font-weight:400; color:var(--muted); padding-left:3px; white-space:nowrap; }
+.text-field,textarea { width:100%; color:var(--ink); background:#ffffff85; border:1px solid var(--border); border-radius:11px; padding:12px; font-size:.95rem; }
+.text-field { min-height:48px; }
+textarea { resize:vertical; min-height:85px; display:block; }
+::placeholder { color:#76657e; opacity:1; font-size:.87rem; }
+.choices { border:0; padding:0; margin:20px 0; display:grid; gap:10px; min-width:0; }
+.option { display:flex; align-items:center; position:relative; gap:12px; padding:15px 14px; min-height:62px; border:1px solid var(--border); border-radius:15px; background:#ffffff70; cursor:pointer; font-size:.94rem; line-height:1.35; }
+/* O campo nativo continua focável. Somente sua aparência visual é substituída. */
+.option input { position:absolute; width:1px; height:1px; opacity:0; }
+.option:has(input:focus-visible) { outline:3px solid var(--focus); outline-offset:3px; }
+.option:has(input:checked) { background:var(--lilac); border-color:#b991ce; }
+.icon { width:25px; height:25px; flex:0 0 25px; fill:none; stroke:var(--purple-dark); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.selection { width:24px; height:24px; flex:0 0 24px; margin-left:auto; border:1px solid #9b8ba3; border-radius:50%; display:grid; place-items:center; }
+input:checked ~ .selection { background:var(--purple); border-color:var(--purple); }
+input:checked ~ .selection::after { content:"✓"; color:white; font-size:16px; font-weight:bold; }
+.counter { text-align:right; color:var(--muted); font-size:.72rem; margin:4px 0 13px; }
+.primary > span { margin-left:auto; font-size:1.5rem; line-height:1; }
+.communication-title { display:flex; align-items:center; gap:8px; }
+.communication-title > span { color:#a86ab8; font-size:3rem; }
+.state-dot { width:9px; height:9px; border-radius:50%; flex:0 0 9px; }
+.green { background:#43814d; } .amber { background:#cc902c; } .red { background:#c94862; }
+#etapa-2 .option { min-height:76px; gap:10px; }
+footer { text-align:center; font-size:.76rem; color:var(--muted); padding-top:24px; }
+.confirmation { text-align:center; padding:24px 0 10px; }
+.confirmation p { color:var(--muted); margin:18px 0; }
+.success-heart { display:block; color:var(--purple); font-size:5rem; line-height:1.4; }
+.ticket { background:var(--lilac); border:1px solid #d2b5e0; border-radius:18px; margin:28px auto; padding:18px; }
+.ticket span,.ticket strong { display:block; }
+.ticket strong { font-size:2.3rem; }
+.sprite { position:absolute; width:0; height:0; overflow:hidden; }
+@media(min-width:600px) { .mobile-shell { min-height:0; margin:28px auto; border:1px solid var(--border); border-radius:28px; box-shadow:0 14px 50px #44205112; padding:30px 26px 24px; } }
+@media(max-width:350px) { .mobile-shell { padding:22px 16px; } .welcome-art { width:110px; right:-14px; top:-24px; opacity:.6; } .option { padding:13px 10px; gap:9px; } }
