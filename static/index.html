@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f4">
+  <title>Empatize · Como podemos acolher você?</title>
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/pessoa.css">
+</head>
+<body>
+  <!-- Ícones locais: não dependem de internet nem de uma biblioteca externa. -->
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="som" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z M15 8q5 4 0 8M18 5q8 7 0 14"/></symbol>
+    <symbol id="instrucoes" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol>
+    <symbol id="toque" viewBox="0 0 24 24"><path d="M7 12V6a1.5 1.5 0 0 1 3 0v5-7a1.5 1.5 0 0 1 3 0v7-5a1.5 1.5 0 0 1 3 0v6-3a1.5 1.5 0 0 1 3 0v7q0 6-6 6H11q-3 0-5-4l-3-5q-1-2 1-3 1-1 3 2Z"/></symbol>
+    <symbol id="espera" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/></symbol>
+    <symbol id="balao" viewBox="0 0 24 24"><path d="M21 11c0 5-6 8-12 6l-6 4 2-6C-2 2 20-2 21 11Z"/></symbol>
+    <symbol id="ondas" viewBox="0 0 24 24"><path d="M2 8q5-5 10 0t10 0M2 16q5-5 10 0t10 0"/></symbol>
+    <symbol id="pausa" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8v8M15 8v8"/></symbol>
+  </svg>
+  <main class="mobile-shell">
+    <header class="brand"><span class="brand-mark" aria-hidden="true">♡</span> Empatize</header>
+    <div id="progresso" class="progress" aria-label="Etapa 1 de 2"><span id="etapa-texto">1 de 2</span><span class="progress-track"><span id="etapa-barra"></span></span></div>
+    <!-- É um único formulário: ao voltar, os campos preenchidos são preservados. -->
+    <form id="formulario" novalidate>
+      <section id="etapa-1" aria-labelledby="titulo-1">
+        <div class="welcome"><h1 id="titulo-1" tabindex="-1">Como podemos<br>acolher você?</h1><img src="/static/img/acolhimento.svg" alt="" class="welcome-art"></div>
+        <p class="intro">Escolha o que ajuda no seu atendimento.</p>
+        <label class="field-label" for="nome">Como podemos chamar você?</label>
+        <input id="nome" name="nome" class="text-field" maxlength="60" autocomplete="given-name" placeholder="Seu nome ou como prefere ser chamado(a)" required>
+        <fieldset class="choices"><legend class="sr-only">Preferências de atendimento. Você pode escolher mais de uma.</legend>
+          <!-- O checkbox é nativo e acessível; o CSS transforma o rótulo em um cartão. -->
+          <label class="option"><input type="checkbox" name="escolha" value="som"><svg class="icon" aria-hidden="true"><use href="#som"/></svg><span>Menos barulho</span><span class="selection" aria-hidden="true"></span></label>
+          <label class="option"><input type="checkbox" name="escolha" value="instrucoes"><svg class="icon" aria-hidden="true"><use href="#instrucoes"/></svg><span>Instruções claras</span><span class="selection" aria-hidden="true"></span></label>
+          <label class="option"><input type="checkbox" name="escolha" value="toque"><svg class="icon" aria-hidden="true"><use href="#toque"/></svg><span>Avisar antes de tocar</span><span class="selection" aria-hidden="true"></span></label>
+          <label class="option"><input type="checkbox" name="escolha" value="espera"><svg class="icon" aria-hidden="true"><use href="#espera"/></svg><span>Previsão de espera</span><span class="selection" aria-hidden="true"></span></label>
+        </fieldset>
+        <label class="field-label" for="outra-preferencia">Precisa de algo diferente? <span class="optional">Opcional</span></label>
+        <textarea id="outra-preferencia" name="outra_preferencia" rows="3" maxlength="400" placeholder="Escreva aqui sua preferência" aria-describedby="contador-preferencia"></textarea>
+        <p class="counter" id="contador-preferencia">0 / 400</p>
+        <button id="continuar" type="button" class="button primary">Continuar <span aria-hidden="true">→</span></button>
+      </section>
+      <section id="etapa-2" hidden aria-labelledby="titulo-2">
+        <div class="communication-title"><h1 id="titulo-2" tabindex="-1">Como está sua<br>comunicação agora?</h1><span aria-hidden="true">♡</span></div>
+        <p class="intro">Escolha como você se sente neste momento.</p>
+        <fieldset class="choices"><legend class="sr-only">Estado de comunicação. Escolha uma opção.</legend>
+          <label class="option"><input type="radio" name="estado" value="verde" required><svg class="icon" aria-hidden="true"><use href="#balao"/></svg><span class="state-dot green" aria-hidden="true"></span><span>Consigo me comunicar</span><span class="selection" aria-hidden="true"></span></label>
+          <label class="option"><input type="radio" name="estado" value="amarelo"><svg class="icon" aria-hidden="true"><use href="#ondas"/></svg><span class="state-dot amber" aria-hidden="true"></span><span>Estou ficando sobrecarregado(a)</span><span class="selection" aria-hidden="true"></span></label>
+          <label class="option"><input type="radio" name="estado" value="vermelho"><svg class="icon" aria-hidden="true"><use href="#pausa"/></svg><span class="state-dot red" aria-hidden="true"></span><span>Estou com dificuldade para me comunicar</span><span class="selection" aria-hidden="true"></span></label>
+        </fieldset>
+        <label class="field-label" for="ajuda-comunicacao">O que pode ajudar você agora? <span class="optional">Opcional</span></label>
+        <textarea id="ajuda-comunicacao" name="ajuda_comunicacao" rows="4" maxlength="400" placeholder="Conte como podemos ajudar" aria-describedby="contador-comunicacao"></textarea>
+        <p class="counter" id="contador-comunicacao">0 / 400</p>
+        <button id="enviar" type="submit" class="button primary">Enviar para a recepção</button>
+        <button id="voltar" type="button" class="button text-button">← Voltar</button>
+      </section>
+      <p id="mensagem" role="alert" class="feedback" hidden></p>
+    </form>
+    <section id="confirmacao" hidden class="confirmation" aria-labelledby="titulo-confirmacao">
+      <span class="success-heart" aria-hidden="true">♡</span><h1 id="titulo-confirmacao" tabindex="-1">Recebemos suas<br>preferências.</h1><p id="confirmacao-nome"></p><div class="ticket"><span>Seu atendimento</span><strong id="numero-atendimento"></strong></div><p>Se precisar, mostre este número à recepção.</p><button id="novo" class="button text-button" type="button">Fazer uma nova solicitação</button>
+    </section>
+    <footer>Você comunica. A gente acolhe.</footer>
+  </main>
+  <script type="module" src="/static/js/pessoa.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Não envie chaves ou arquivos gerados automaticamente para o Git.
+.env
+.env.*
+__pycache__/
+*.pyc
+.venv/
