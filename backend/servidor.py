@@ -1,5 +1,6 @@
 """Rotas HTTP: recebem pedidos das telas e chamam os serviços correspondentes."""
 import json
+import os
 import re
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlsplit
@@ -28,12 +29,22 @@ class Servidor(BaseHTTPRequestHandler):
         # Apenas método e caminho; não registramos nomes nem campos livres no terminal.
         print(f"{self.command} {urlsplit(self.path).path}")
 
+    def _cabecalhos_cors(self):
+        origem = self.headers.get("Origin")
+        origem_permitida = os.getenv("CORS_ORIGIN", "").strip()
+        if origem and origem_permitida and origem == origem_permitida:
+            self.send_header("Access-Control-Allow-Origin", origem)
+            self.send_header("Vary", "Origin")
+            self.send_header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS")
+            self.send_header("Access-Control-Allow-Headers", "Content-Type")
+
     def responder(self, corpo, tipo, status=200):
         self.send_response(status)
         self.send_header("Content-Type", tipo)
         self.send_header("Content-Length", str(len(corpo)))
         self.send_header("Cache-Control", "no-store")
         self.send_header("X-Content-Type-Options", "nosniff")
+        self._cabecalhos_cors()
         self.end_headers()
         self.wfile.write(corpo)
 
@@ -49,6 +60,12 @@ class Servidor(BaseHTTPRequestHandler):
             return json.loads(self.rfile.read(tamanho).decode("utf-8"))
         except (ValueError, UnicodeError):
             raise DadosInvalidos("Não foi possível ler a solicitação enviada.") from None
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self._cabecalhos_cors()
+        self.send_header("Content-Length", "0")
+        self.end_headers()
 
     def do_GET(self):
         caminho = urlsplit(self.path).path

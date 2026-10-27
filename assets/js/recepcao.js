@@ -43,7 +43,7 @@ function criarCartao(atendimento) {
 
   const bloco = elemento('div', '', 'ai-block');
   bloco.append(elemento('p', 'Assistente de acolhimento', 'ai-label'));
-  bloco.append(elemento('p', 'Demonstração: sugestões fixas, não geradas por IA. A equipe avalia o que é possível oferecer.', 'ai-disclaimer'));
+  bloco.append(elemento('p', 'As orientações apoiam a equipe; confirme o que é possível oferecer e respeite as escolhas da pessoa.', 'ai-disclaimer'));
   if (atendimento.ia_status === 'concluida') {
     const dicas = elemento('ul');
     for (const dica of atendimento.orientacoes) dicas.append(elemento('li', dica));

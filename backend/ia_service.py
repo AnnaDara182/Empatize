@@ -28,8 +28,8 @@ def gerar_orientacoes(atendimento):
     if not chave:
         raise IAIndisponivel("IA não configurada. Defina OPENAI_API_KEY no servidor para ativá-la.")
 
-    # O campo nome e o número NÃO são enviados. Campos livres podem conter dados
-    # digitados pela pessoa; por isso use somente informações fictícias na apresentação.
+    # O nome e o número do atendimento não são enviados à IA. Os campos livres
+    # são enviados para gerar orientações; informe isso à pessoa e minimize dados pessoais.
     contexto = {
         "preferencias": [PREFERENCIAS[x] for x in atendimento["escolhas"]],
         "outra_preferencia": atendimento["outra_preferencia"],
