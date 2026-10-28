@@ -1,3 +1,5 @@
+#Recebe as solicitações e disponibiliza os atendimentos.
+
 """Rotas HTTP: recebem pedidos das telas e chamam os serviços correspondentes."""
 import json
 import os

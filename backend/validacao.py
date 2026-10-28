@@ -1,3 +1,5 @@
+#Armazena temporariamente os atendimentos.
+
 """Valida os dados também no servidor: a validação do navegador pode ser contornada."""
 from .config import ESTADOS, LIMITE_NOME, LIMITE_TEXTO, PREFERENCIAS
 
