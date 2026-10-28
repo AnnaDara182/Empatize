@@ -1,0 +1,19 @@
+# Não envie chaves ou arquivos gerados automaticamente para o Git.
+.env
+.env.*
+__pycache__/
+*.pyc
+.venv/
+
+# Banco de dados local e informações dos atendimentos
+dados/
+*.db
+*.sqlite
+*.sqlite3
+
+# Arquivos Python temporários
+__pycache__/
+*.py[cod]
+
+# Variáveis de ambiente e chaves de API
+.env

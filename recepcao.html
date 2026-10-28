@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Empatize · Recepção</title>
+
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/recepcao.css">
+</head>
+
+<body class="reception-body">
+
+    <main class="reception-shell">
+
+        <!-- Cabeçalho do painel -->
+        <header class="reception-header">
+
+            <div>
+                <p class="brand">
+                    <span class="brand-mark" aria-hidden="true">♡</span>
+                    Empatize
+                </p>
+
+                <p class="eyebrow">PAINEL DA RECEPÇÃO</p>
+
+                <h1>Um atendimento mais acolhedor.</h1>
+
+                <p>
+                    Veja o que cada pessoa precisa e respeite seu tempo.
+                </p>
+            </div>
+
+            <!-- Total de solicitações aguardando atendimento -->
+            <div class="count-card">
+                <strong id="total">0</strong>
+                <span>aguardando atendimento</span>
+            </div>
+
+        </header>
+
+        <!-- Área de atualização -->
+        <div class="toolbar">
+            <h2>Solicitações recebidas</h2>
+
+            <button
+                id="atualizar"
+                class="button secondary"
+                type="button"
+            >
+                Atualizar
+            </button>
+        </div>
+
+        <!-- Mensagens de carregamento e erro -->
+        <p
+            id="aviso"
+            role="status"
+            aria-live="polite"
+            class="feedback"
+        ></p>
+
+        <!-- Os atendimentos são adicionados pelo JavaScript -->
+        <section id="lista" aria-label="Atendimentos">
+            <p class="empty">Carregando solicitações…</p>
+        </section>
+
+        <!-- Aviso sobre o armazenamento dos dados -->
+        <p class="demo-note">
+            As solicitações ficam disponíveis para a equipe enquanto o
+            servidor as mantiver. Encerre cada atendimento ao concluir.
+        </p>
+
+    </main>
+
+    <!-- Configuração da API e comportamento do painel -->
+    <script src="./assets/js/config.js"></script>
+    <script type="module" src="./assets/js/recepcao.js"></script>
+
+</body>
+
+</html>
